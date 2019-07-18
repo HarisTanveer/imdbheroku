@@ -1,0 +1,13 @@
+<div class="example-2 card">
+  <div class="wrapper" style=" background: url(<%= url_for actor.avatar %>) center/cover no-repeat;">
+    <div class="data">
+      <div class="content">
+        <h1 class="title"><%=actor.name %></h1>
+        <a href="/actors/<%= actor.id %>" class=" btn btn-primary btn-lg">More</a>
+        <% if current_user.admin? %>
+          <%= link_to "Delete", actor_path(actor), method: :delete, class: "btn btn-danger" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#homepage{
+	text-align: center;
+}
+
+#homepage .row{
+	overflow-x: auto;
+	width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+#homepage h3 {
+	margin: 2.5em 0 1.5em 0;
+}
+
+#homepage-2{
+  text-align: center;
+}
+
+#homepage-2 .row{
+  overflow-x: auto;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#homepage-2 h3 {
+  margin: 2.5em 0 1.5em 0;
+}
+

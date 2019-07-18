@@ -1,0 +1,32 @@
+<%= form_for @user, url: admin_user_path, method: :put do |f| %>
+<section class="form-dark">
+  <div class="card card-image" >
+    <!--Header-->
+    <div class="text-center">
+      <h3 class="white-text mb-3 mt-2 font-weight-bold"><strong>Edit</strong> <a class="green-text font-weight-bold"><strong> USER</strong></a></h3>
+    </div>
+    <!--Body-->
+    <div class="form-group"> 
+      <% if @user.avatar.attached? %>
+      <%= image_tag user_avatar(@user, 100), class: "rounded-circle" %>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <label for="Form-file" class="text-body mb-3 mt-2 font-weight-bold">Add/Update Avatar</label>
+      <%= f.file_field :avatar, id: "Form-file" %>
+    </div>
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="row d-flex align-items-center mb-4">
+      <div class="text-center mb-3 col-md-12">
+        <%= f.submit "Update", class: "btn btn-success btn-block btn-rounded z-depth-1" %>
+      </div>
+    </div>
+  </div>
+</section>
+<% end %>
+
+

@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+<div id="showpages">
+  <div class="moviecard">
+    <div class="row bootstrap snippets" id="panel-body-id">
+      <div class="col-md-12 col-md-offset-2 col-sm-12">
+        <div class="comment-wrapper">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+             <h3 class="text-center mb-5">Reported Reviews</h3>
+           </div>
+           <div class="panel-body">
+            <% @reported_reviews.each do |reported_review| %>
+            <ul class="media-list" id="review-<%= reported_review.review_id %>">
+              <li class="media">
+                <span class="pull-left mr-3">
+                  <img src="<%= url_for user_avatar (reported_review.review.user) %>" alt="">
+                </span>
+                <div class="media-body">
+                  <span class="text-muted pull-right">
+                  </span>
+                  <strong class="text-success">@ <%= reported_review.user.name %> Reported this review on 
+                    <strong class="text-danger">"<%= reported_review.movie.title %>"</strong>
+                  </strong>
+                  <p id="description"><%= reported_review.description %>
+                  </p>
+                  <%= link_to 'Destroy', admin_reported_review_path(reported_review.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%= link_to 'Edit', edit_review_path(reported_review.review) %></td>
+                </div>
+              </li>
+            </ul>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

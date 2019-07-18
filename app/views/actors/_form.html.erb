@@ -1,0 +1,49 @@
+<%= form_with(model: actor, local: true) do |form| %>
+  <% if actor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(actor.errors.count, "error") %> prohibited this actor from being saved:</h2>
+
+      <ul>
+        <% actor.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <section class="form-dark">
+    <div class="card card-image" >
+      <!--Header-->
+      <div class="text-center">
+        <h3 class="white-text mb-3 mt-2 font-weight-bold"><strong>Edit</strong> <a class="green-text font-weight-bold"><strong> Actor</strong></a></h3>
+      </div>
+      <!--Body-->
+      <div class="form-group">
+        <% if @actor.avatar.attached? %>
+          <%= image_tag user_avatar(@actor, 100), class: "rounded-circle" %>
+        <% end %>
+      </div>
+        <div class="form-group">
+          <%= form.label :avatar %>
+          <%= form.file_field :avatar %>
+        </div>
+
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+      <div class="form-group">
+        <%= form.label :date_of_birth %>
+        <%= form.text_field :date_of_birth %>
+      </div>
+
+      <div class="row d-flex align-items-center mb-4">
+        <div class="text-center mb-3 col-md-12">
+          <%= form.submit "Update", class: "btn btn-success btn-block btn-rounded z-depth-1" %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<% end %>

@@ -1,0 +1,96 @@
+<%= form_with(model: movie, local: true) do |form| %>
+  <% if movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+      <ul>
+        <% movie.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <section class="form-dark">
+    <div class="card card-image" >
+      <!--Header-->
+      <div class="text-center">
+        <h3 class="white-text mb-3 mt-2 font-weight-bold"><strong>Edit</strong> <a class="green-text font-weight-bold"><strong> Movie</strong></a></h3>
+      </div>
+      <!--Body-->
+
+      <div class="md-form">
+        <label for="Form-title" class="text-body mb-3 mt-2 font-weight-bold">Title</label>
+        <%= form.text_field :title, id: "Form-title" %>
+      </div>
+      <div class="md-form">
+         <div class="form-group">
+          <label for="Form-des" class="text-body mb-3 mt-2 font-weight-bold">Description</label>
+          <%= form.cktext_area :description, ckeditor: { language: 'uk'}, id: "Form-des" %>
+        </div>
+      </div>
+      <div class="md-form pb-3">
+       
+        <div class="form-group">
+          <label for="Form-genre" class="text-body mb-3 mt-2 font-weight-bold">Genre</label>
+          <%= form.select :genre, ['Comedy', 'Action', 'Horror', 'Thriller', 'Romantic'], id: "Form-genre"%>
+        </div>
+
+        <div class="form-group">
+          <label for="Form-rd" class="text-body mb-3 mt-2 font-weight-bold">Release Date</label>
+          <%= form.text_field :release_date, id: "Form-rd" %>
+        </div>
+
+        <div class="form-group">
+          <label for="Form-trailer" class="text-body mb-3 mt-2 font-weight-bold">Trailer</label>
+          <%= form.text_field :trailer, id: "Form-trailer" %>
+        </div>
+
+        <div class="form-group">
+          <label for="Form-rating" class="text-body mb-3 mt-2 font-weight-bold">Rating</label>
+          <%= form.text_field :rating, id: "Form-rating" %>
+        </div>
+
+        <div class="form-group">
+          <label for="Form-dir" class="text-body mb-3 mt-2 font-weight-bold">Director</label>
+          <%= form.text_field :director, id: "Form-dir" %>
+        </div>
+
+        <div class="form-group">
+          <label for="Form-writer" class="text-body mb-3 mt-2 font-weight-bold">Writer</label>
+          <%= form.text_field :writer, id: "Form-writer" %>
+        </div>
+
+        <div class="form-group">
+          <label for="Form-rt" class="text-body mb-3 mt-2 font-weight-bold">Run Time</label>
+          <%= form.text_field :run_time, id: "Form-rt" %>
+        </div>
+        
+        <div class="form-group">
+          <label for="Form-file" class="text-body mb-3 mt-2 font-weight-bold">Add Posters</label>
+          <%= form.file_field :images, multiple: true, id: "Form-file" %>
+        </div>
+
+        <div class="form-group">
+          <h3>Existing Posters</h3>
+          <div class="row">
+            <% movie.images.each do |image| %>
+              <div id="image-<%= image.id %>" class="col-sm-3">
+                <%= image_tag url_for(image.variant(resize: "150x150")) %>
+                <%= link_to 'Delete', delete_image_from_movie_path(movie, image), method: :post, remote: true, data: { confirm: true } %>
+              </div>
+            <% end %>
+          </div> 
+        </div>  
+      </div>
+      <!--Grid row-->
+      <div class="row d-flex align-items-center mb-4">
+        <div class="text-center mb-3 col-md-12">
+          <%= form.submit 'Update', class: "btn btn-success btn-block btn-rounded z-depth-1" %>
+        </div>
+        <!--Grid column-->
+      </div>
+    </div>
+  </section>
+<% end %>
+
+
+

@@ -1,0 +1,29 @@
+<div id="movie-card-list">
+  <!-- Card 1: Blade Runner -->
+  <div class="movie-card" style="background: url( <%= url_for movie.images.first %>); background-size: contain;">
+    <div class="color-overlay">
+      <% if current_user.try(:admin?) %>
+        <div class="movie-share">
+          <%= link_to  edit_movie_path(movie), class: "btn btn-primary mt-2 a-btn-slide-text" do %>
+            <span aria-hidden="true">&#x270f;</span>
+          <% end %>
+          <%= link_to movie_path(movie), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary mt-2 a-btn-slide-text", id: "del_movie" do %>
+            <span aria-hidden="true" class="fa fa-remove"></span>
+          <% end %>
+        </div>
+      <%  end %>
+      <div class="movie-content">
+        <div class="movie-header">
+          <h1 class="movie-title"><%= movie.title %></h1>
+          <h4 class="movie-info">(<%= movie.release_date %>) <%= movie.genre %></h4>
+        </div>
+        <p class="movie-desc">
+          <%=truncate(raw(movie.description), :length => 200) %>
+        </p>
+        <a class="btn btn-outline" href="/movies/<%=movie.id %>">
+          Watch Trailer
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

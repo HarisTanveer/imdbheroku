@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h3 class="text-center text-white">Actors</h3>
+<div class="row">
+  <% @actors.each do |actor| %>
+    <div class="col-sm-4">
+      <%= render partial: 'index', locals: { actor: actor } %>
+     </div>
+  <% end %>
+ </div>
+ <div class="row">
+   <div class="container pagination justify-content-center mt-5">
+    <%= paginate @actors,  pagination_class: "pagination-sm" %>
+  </div>
+</div>
+<br>
+<% if current_user.admin? %>
+  <%= link_to 'New Actor', new_actor_path, class: "btn btn-primary mt-5 mb-5 col-2" %>
+<% end %>

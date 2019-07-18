@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+	<% @movies.each do |movie| %>
+	<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+		<%= render partial: 'index', locals: { movie: movie } %>
+	</div>
+	<% end %>
+</div>
+
+<div class="container pagination justify-content-center">
+  <%= paginate @movies,  pagination_class: "pagination-sm" %>
+</div>
+<% if current_user.admin? %>
+  <%= link_to 'New Movie', new_movie_path %>
+<% end %>

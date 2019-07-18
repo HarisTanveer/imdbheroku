@@ -1,0 +1,162 @@
+// Place all the styles related to the Movies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+a {
+  text-decoration: none;
+}
+
+#movie-card-list .movie-card {
+  background-size: contain;
+  background-position: -40% 80%;
+  background-repeat: no-repeat;
+  width: 90%;
+  height: 450px;
+  display: block;
+  margin: 8vh auto;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);
+}
+
+#movie-card-list .color-overlay {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(42, 159, 255, 0.2)), color-stop(60%, #212120), to(#212120));
+  background: linear-gradient(to right, rgba(42, 159, 255, 0.2) 0%, #212120 60%, #212120 100%);
+  background-blend-mode: multiply;
+}
+
+#movie-card-list h1, h2, h3 {
+  font-family: "Montserrat", helvetica, arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+#movie-card-list .movie-content {
+  width: 40%;
+  display: block;
+  position: relative;
+  float: right;
+  padding-right: 1em;
+}
+
+#movie-card-list .movie-share a.btn:hover,#del_movie.btn:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+ }
+ #movie-card-list .movie-share a.btn,#del_movie.btn:hover {
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+ }
+
+#movie-card-list .movie-content .movie-title {
+  color: #ffffff;
+  margin-bottom: .20em;
+  opacity: .75;
+}
+
+#movie-card-list .movie-content .movie-info {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: .8em;
+  color: #ffffff;
+  line-height: 1;
+  margin: 0;
+  font-weight: 700;
+  opacity: .5;
+}
+#movie-card-list .movie-content .movie-header {
+  margin-bottom: 2em;
+}
+#movie-card-list .movie-content p {
+  color: #ffffff;
+  font-weight: 300;
+  opacity: .84;
+  margin-bottom: 2em;
+}
+
+#movie-card-list .btn {
+  margin-top: 4em;
+  padding-bottom: .5em;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+#movie-card-list .btn-outline {
+  background-color: transparent;
+  border: 3px solid #ffffff;
+}
+
+#movie-card-list .btn::before {
+  font-family: 'Material Icons';
+  vertical-align: middle;
+  font-size: 1.5em;
+  padding-right: .5em;
+}
+
+#movie-card-list .btn-outline:hover {
+  border-color: #2a9fff;
+  color: #2a9fff;
+  -webkit-box-shadow: 0px 1px 8px 0px rgba(245, 199, 0, 0.2);
+  box-shadow: 0px 1px 8px 0px rgba(245, 199, 0, 0.2);
+}
+
+@media (max-width: 1000px) {
+  #movie-card-list .movie-content {
+    width: 50%;
+    max-width: 95%;
+  }
+}
+@media (max-width: 800px) {
+  #movie-card-list .movie-card {
+    width: 95%;
+    max-width: 95%;
+  }
+}
+@media (max-width: 600px) {
+  #movie-card-list .movie-card, .movie-card:nth-child(2), .movie-card:nth-child(3) {
+    background-position: 50% 0%;
+    background-size: cover;
+    height: 450px;
+  }
+  
+
+  #movie-card-list .color-overlay {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(42, 159, 255, 0.2)), color-stop(60%, #212120), to(#212120));
+    background: linear-gradient(to bottom, rgba(42, 159, 255, 0.2) 0%, #212120 60%, #212120 100%);
+  }
+}
+
+.comment-wrapper .panel-body {
+  max-height:650px;
+  overflow:auto;
+}
+
+.comment-wrapper .media-list .media img {
+  width:64px;
+  height:64px;
+  border:2px solid #e5e7e8;
+}
+
+.comment-wrapper .media-list .media {
+  border-bottom:1px dashed #efefef;
+  margin-bottom:25px;
+}
+
+.button:hover #heart_fav {
+  background-color: red ;
+}
+
