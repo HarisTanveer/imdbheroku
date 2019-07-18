@@ -21,5 +21,4 @@ class UsersController < ApplicationController
       format.js {render 'remove_favourite'}
     end
   end
-
 end

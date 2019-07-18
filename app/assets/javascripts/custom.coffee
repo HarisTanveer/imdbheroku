@@ -3,10 +3,9 @@ toggleVideo = (state) ->
   div = document.getElementById('youvideo')
   iframe = div.getElementsByTagName('iframe')[0].contentWindow
   div.style.display = if state == 'hide' then 'none' else ''
-  if state == 'hide' then jQuery('.youvideo').get(0).stopVideo() 
+  if state == 'hide' then jQuery('.youvideo').get(0).stopVideo()
 
 $(document).ready ->
-
   $('.play-trailer').on 'click', ->
     toggleVideo 'show'
     $('.moviecard').addClass 'movie-view-trailer'
@@ -15,11 +14,11 @@ $(document).ready ->
     $('.moviecard').removeClass 'movie-view-trailer'
     toggleVideo 'hide'
 
-  jQuery('#myCarousel').carousel interval: 3000 
+  jQuery('#myCarousel').carousel interval: 3000
 
   $('#btnadd').click ->
     $('.add_actor').toggle 'slide'
-  
+
   url = window.location.href
   if (~url.indexOf("?"))
     url = url.substring(0, url.indexOf('?'))
@@ -29,14 +28,15 @@ $(document).ready ->
     $.ajax
       type: 'POST'
       url: id + '/' + $('#actors_actor_id').val() + '/addActor'
-      headers: 'X-CSRF-Token': document.querySelector('meta[name=csrf-token]').content
+      headers:
+        'X-CSRF-Token': document.querySelector('meta[name=csrf-token]').content
       success: (result) ->
         window.location.reload()
         return
 
   $('#div-edit > a ').click ->
     $('#myPost').attr 'method', 'post'
-    $('#myPost').attr 'action', '/reviews/'+ $(this).data 'id'
+    $('#myPost').attr 'action', '/reviews/' + $(this).data 'id'
     $('<input>').attr(
       type: 'hidden'
       value: 'patch'
@@ -53,7 +53,6 @@ $(document).ready ->
 
   $('#search_textbox').keydown ->
     $('#search_submit').click()
-
 
   $('#btn_search_show').on 'click', ->
     if $('#search_div').css('display') == 'none'

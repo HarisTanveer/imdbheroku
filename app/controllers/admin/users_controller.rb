@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_user!, :authenticate_admin!
-  
+
   def index
     @users = User.all
   end
@@ -31,7 +31,6 @@ class Admin::UsersController < ApplicationController
     else
       redirect_to root_path
     end
-
   end
 
   def update
@@ -63,7 +62,7 @@ class Admin::UsersController < ApplicationController
 
   private
   def users_params
-    params.require(:user).permit(:id, :name,:avatar)
+    params.require(:user).permit(:id, :name, :avatar)
   end
 
   def users_new_params

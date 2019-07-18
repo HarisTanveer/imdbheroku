@@ -2,22 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .rating-widget * {
-  -webkit-box-sizing:border-box;
-  -moz-box-sizing:border-box;
-  box-sizing:border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *:before, *:after {
--webkit-box-sizing: border-box;
--moz-box-sizing: border-box;
-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .rating-widget .clearfix {
-  clear:both;
+  clear: both;
 }
 
-.rating-widget .text-center {text-align:center;}
+.rating-widget .text-center {
+  text-align: center;
+}
 
 .rating-widget a {
   color: tomato;
@@ -43,31 +45,31 @@ box-sizing: border-box;
 }
 
 .rating-widget .header {
-  padding:20px 0;
-  position:relative;
-  margin-bottom:10px;
-  
+  padding: 20px 0;
+  position: relative;
+  margin-bottom: 10px;
+
 }
 
 .rating-widget .header:after {
-  content:"";
-  display:block;
-  height:1px;
-  background:#eee;
-  position:absolute; 
-  left:30%; right:30%;
+  content: "";
+  display: block;
+  height: 1px;
+  background: #eee;
+  position: absolute;
+  left: 30%;
+  right: 30%;
 }
 
 .rating-widget .header h2 {
-  font-size:3em;
-  font-weight:300;
-  margin-bottom:0.2em;
+  font-size: 3em;
+  font-weight: 300;
+  margin-bottom: 0.2em;
 }
 
 .rating-widget .header p {
-  font-size:14px;
+  font-size: 14px;
 }
-
 
 
 .rating-widget #a-footer {
@@ -78,7 +80,7 @@ box-sizing: border-box;
   padding: 20px 20px;
   border: 1px solid #eee;
   border-radius: 20px;
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   text-align: center;
   font-size: 14px;
   line-height: 1.7;
@@ -92,47 +94,48 @@ box-sizing: border-box;
 }
 
 .rating-widget .success-box {
-  margin:50px 0;
-  padding:10px 10px;
-  border:1px solid #eee;
-  background:#f9f9f9;
+  margin: 50px 0;
+  padding: 10px 10px;
+  border: 1px solid #eee;
+  background: #f9f9f9;
 }
 
 .rating-widget .success-box img {
-  margin-right:10px;
-  display:inline-block;
-  vertical-align:top;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .rating-widget .success-box > div {
-  vertical-align:top;
-  display:inline-block;
-  color:#888;
+  vertical-align: top;
+  display: inline-block;
+  color: #888;
 }
 
 /* Rating Star Widgets Style */
 .rating-widget .rating-stars ul {
-  list-style-type:none;
-  padding:0;
-  -moz-user-select:none;
-  -webkit-user-select:none;
+  list-style-type: none;
+  padding: 0;
+  -moz-user-select: none;
+  -webkit-user-select: none;
 }
+
 .rating-widget .rating-stars ul > li.star {
-  display:inline-block;
+  display: inline-block;
 }
 
 /* Idle State of the stars */
 .rating-widget .rating-stars ul > li.star > i.fa {
-  font-size:2.5em; /* Change the size of the stars */
-  color:#ccc; /* Color on idle state */
+  font-size: 2.5em; /* Change the size of the stars */
+  color: #ccc; /* Color on idle state */
 }
 
 /* Hover state of the stars */
 .rating-widget .rating-stars ul > li.star.hover > i.fa {
-  color:#FFCC36;
+  color: #FFCC36;
 }
 
 /* Selected state of the stars */
 .rating-widget .rating-stars ul > li.star.selected > i.fa {
-  color:#FF912C;
+  color: #FF912C;
 }

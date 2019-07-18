@@ -2,5 +2,5 @@ $("#homepage").hide();
 $("#homepage-2").show()
 $('#Results-div').empty()
 <% @movies.each_with_index do |movie, index| %>
- $("#Results-div").append("<div class='col-12 csol-sm-6 col-md-4 col-lg-4'>"+"<%= j render(:partial => 'index', locals: { movie: movie } ) %>" + "</div>");
+$("#Results-div").append("<div class='col-12 csol-sm-6 col-md-4 col-lg-4'>" + "<%= j render(:partial => 'index', locals: { movie: movie } ) %>" + "</div>");
 <% end %>

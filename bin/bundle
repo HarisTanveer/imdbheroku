@@ -11,7 +11,7 @@
 require "rubygems"
 
 m = Module.new do
-    module_function
+  module_function
 
   def invoked_as_script?
     File.expand_path($0) == File.expand_path(__FILE__)
@@ -46,10 +46,12 @@ m = Module.new do
 
   def lockfile
     lockfile =
-      case File.basename(gemfile)
-      when "gems.rb" then gemfile.sub(/\.rb$/, gemfile)
-      else "#{gemfile}.lock"
-      end
+        case File.basename(gemfile)
+        when "gems.rb" then
+          gemfile.sub(/\.rb$/, gemfile)
+        else
+          "#{gemfile}.lock"
+        end
     File.expand_path(lockfile)
   end
 
@@ -63,7 +65,7 @@ m = Module.new do
   def bundler_version
     @bundler_version ||= begin
       env_var_version || cli_arg_version ||
-        lockfile_version || "#{Gem::Requirement.default}.a"
+          lockfile_version || "#{Gem::Requirement.default}.a"
     end
   end
 

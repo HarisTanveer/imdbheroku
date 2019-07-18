@@ -1,7 +1,7 @@
 class Admin::ReportedReviewsController < ApplicationController
   before_action :set_reported_review, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :authenticate_admin!, only: [:show, :edit ,:update, :destroy, :new, :index]
+  before_action :authenticate_admin!, only: [:show, :edit, :update, :destroy, :new, :index]
   # GET /reported_reviews
   # GET /reported_reviews.json
   def index
@@ -29,10 +29,10 @@ class Admin::ReportedReviewsController < ApplicationController
 
     respond_to do |format|
       if @reported_review.save
-        format.js { render :create }
+        format.js {render :create}
       else
-        format.html { render :new }
-        format.json { render json: @reported_review.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @reported_review.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -42,11 +42,11 @@ class Admin::ReportedReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @reported_review.update(reported_review_params)
-        format.html { redirect_to @reported_review, notice: 'Reported review was successfully updated.' }
-        format.json { render :show, status: :ok, location: @reported_review }
+        format.html {redirect_to @reported_review, notice: 'Reported review was successfully updated.'}
+        format.json {render :show, status: :ok, location: @reported_review}
       else
-        format.html { render :edit }
-        format.json { render json: @reported_review.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @reported_review.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -56,8 +56,8 @@ class Admin::ReportedReviewsController < ApplicationController
   def destroy
     @reported_review.destroy
     respond_to do |format|
-      format.html { redirect_to admin_reported_reviews_url, notice: 'Reported review was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to admin_reported_reviews_url, notice: 'Reported review was successfully destroyed.'}
+      format.json {head :no_content}
     end
   end
 

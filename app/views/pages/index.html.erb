@@ -4,54 +4,48 @@
       <h1>Welcome to IMDB</h1>
       <p>Register to get started.</p>
       <p>
-        <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary'  %>
+        <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary' %>
         <%= link_to 'Movies', movies_path, class: 'btn btn-primary' %>
       </p>
     </div>
   <% end %>
-  <div class="container" id="homepage">    
+  <div class="container" id="homepage">
     <h3 class="text-center text-white">New Movies</h3>
     <div class="row flex-row flex-nowrap">
       <% @movies.each do |movie| %>
-      <div class="col-12 csol-sm-6 col-md-4 col-lg-4">
-        <%= render partial: 'index', locals: { movie: movie } %>
-      </div>
+        <div class="col-12 csol-sm-6 col-md-4 col-lg-4">
+          <%= render partial: 'index', locals: {movie: movie} %>
+        </div>
       <% end %>
     </div>
-
     <h3 class="text-center text-white">Action Movies</h3>
     <div class="row flex-row flex-nowrap">
       <% @action.each do |movie| %>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-4">
-        <%= render partial: 'index', locals: { movie: movie } %>
-      </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+          <%= render partial: 'index', locals: {movie: movie} %>
+        </div>
       <% end %>
     </div>
-
     <h3 class="text-center text-white">Thriller Movies</h3>
     <div class="row flex-row flex-nowrap">
       <% @thriller.each do |movie| %>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-4">
-        <%= render partial: 'index', locals: { movie: movie } %>
-      </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+          <%= render partial: 'index', locals: {movie: movie} %>
+        </div>
       <% end %>
     </div>
-
     <h3 class="text-center text-white">Comedy Movies</h3>
     <div class="row flex-row flex-nowrap mb-5">
       <% @comedy.each do |movie| %>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-4">
-        <%= render partial: 'index', locals: { movie: movie } %>
-      </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+          <%= render partial: 'index', locals: {movie: movie} %>
+        </div>
       <% end %>
     </div>
-
   </div>
 <% end %>
 
 <div class="container" id="homepage-2" style="display: none">
-  <h3 class="text-center text-white" id="sr-heading" >Search Result</h3>
-  <div class="row flex-row flex-nowrap" id="Results-div">
-
-  </div>
+  <h3 class="text-center text-white" id="sr-heading">Search Result</h3>
+  <div class="row flex-row flex-nowrap" id="Results-div"></div>
 </div>

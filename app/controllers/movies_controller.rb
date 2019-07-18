@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy, :delete_image, :addActor]
   before_action :authenticate_user!
-  before_action :authenticate_admin!, only: [:create, :edit, :update, :destroy, :addActor, :delete_image, :new] 
+  before_action :authenticate_admin!, only: [:create, :edit, :update, :destroy, :addActor, :delete_image, :new]
 
   # GET /movies
   # GET /movies.json
@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
   # GET /movies/1
   # GET /movies/1.json
   def show
-    @reviews = @movie.reviews.order(:timestamp).page params[:page]
+    @reviews = @movie.reviews.page params[:page]
     @reported_reviews = current_user.reported_reviews.where(movie: @movie).pluck(:review_id)
   end
 
@@ -33,11 +33,11 @@ class MoviesController < ApplicationController
 
     respond_to do |format|
       if @movie.save
-        format.html { redirect_to @movie, notice: 'Movie was successfully created.' }
-        format.json { render :show, status: :created, location: @movie }
+        format.html {redirect_to @movie, notice: 'Movie was successfully created.'}
+        format.json {render :show, status: :created, location: @movie}
       else
-        format.html { render :new }
-        format.json { render json: @movie.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @movie.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -47,11 +47,11 @@ class MoviesController < ApplicationController
   def update
     respond_to do |format|
       if @movie.update(movie_params)
-        format.html { redirect_to @movie, notice: 'Movie was successfully updated.' }
-        format.json { render :show, status: :ok, location: @movie }
+        format.html {redirect_to @movie, notice: 'Movie was successfully updated.'}
+        format.json {render :show, status: :ok, location: @movie}
       else
-        format.html { render :edit }
-        format.json { render json: @movie.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @movie.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -61,8 +61,8 @@ class MoviesController < ApplicationController
   def destroy
     @movie.destroy
     respond_to do |format|
-      format.html { redirect_to movies_url, notice: 'Movie was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to movies_url, notice: 'Movie was successfully destroyed.'}
+      format.json {head :no_content}
     end
   end
 
@@ -72,26 +72,26 @@ class MoviesController < ApplicationController
 
   def delete_image
     respond_to do |format|
-      @image=@movie.images.find(params[:image_id])
+      @image = @movie.images.find(params[:image_id])
       @image.purge
-      format.js { render :delete_image }
+      format.js {render :delete_image}
     end
   end
 
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_movie
-      @movie = Movie.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def movie_params
-      params.require(:movie).permit(:title, :description, :genre, :release_date, :rating, :trailer , :director, :writer, :run_time, images: [])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_movie
+    @movie = Movie.find(params[:id])
+  end
 
-    def authenticate_admin!
-      redirect_to root_path unless current_user.admin?
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def movie_params
+    params.require(:movie).permit(:title, :description, :genre, :release_date, :rating, :trailer, :director, :writer, :run_time, images: [])
+  end
+
+  def authenticate_admin!
+    redirect_to root_path unless current_user.admin?
+  end
 end

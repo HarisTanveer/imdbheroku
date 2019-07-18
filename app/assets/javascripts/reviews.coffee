@@ -10,7 +10,6 @@ responseMessage = (msg) ->
 $(document).ready ->
 
   ### 1. Visualizing things on Hover - See next part for action on click ###
-
   $('#stars li').on('mouseover', ->
     onStar = parseInt($(this).data('value'), 10)
     # The star currently mouse on

@@ -1,24 +1,24 @@
 <div id="showpages">
   <div class="moviecard">
-    <div class="movie-poster play-trailer" >
+    <div class="movie-poster play-trailer">
       <div id="demo" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner" >
-          <% @movie.images.each_with_index do |image,index| %>
-          <% if index==0 %>  
-          <div class="carousel-item active">  
+        <div class="carousel-inner">
+          <% @movie.images.each_with_index do |image, index| %>
+            <% if index == 0 %>
+              <div class="carousel-item active">
             <% else %>
-            <div class="carousel-item">
-              <% end %>    
-              <img src="<%= url_for image.variant(resize: "360x600") %>" alt="" class="img-fluid" >
-            </div>
+              <div class="carousel-item">
             <% end %>
+            <img src="<%= url_for image.variant(resize: "360x600") %>" alt="" class="img-fluid">
+            </div>
+          <% end %>
           </div>
         </div>
       </div>
       <div id="movie-content">
         <div class="movie-ratings">
           <span class="star">★</span>
-          <span class="score"> <%= number_with_precision( @movie.rating, precision: 1) %>  </span>
+          <span class="score"> <%= number_with_precision(@movie.rating, precision: 1) %>  </span>
         </div>
         <div class="movie-title"><%= @movie.title %>
           <span class="movie-year"> <%= @movie.release_date %>  </span>
@@ -28,9 +28,9 @@
           <span class="movie-duration"><%= @movie.run_time %></span>
           <span class="movie-genre"> <%= @movie.genre %> </span>
           <% if !current_user.favourite_movies.include?(@movie) %>
-            <%= link_to "", add_movie_to_user_favourites_movie_path(@movie, user_id: current_user.id), method: :post, class: "fa fa-heart-o", id: "heart_fav", remote: true   %>
+            <%= link_to "", add_movie_to_user_favourites_movie_path(@movie, user_id: current_user.id), method: :post, class: "fa fa-heart-o", id: "heart_fav", remote: true %>
           <% else %>
-            <%= link_to "", remove_movie_from_user_favourites_movie_path(id: @movie.id, user_id: current_user.id), method: :post, class: "fa fa-heart", id: "heart_fav", remote: true   %>
+            <%= link_to "", remove_movie_from_user_favourites_movie_path(id: @movie.id, user_id: current_user.id), method: :post, class: "fa fa-heart", id: "heart_fav", remote: true %>
           <% end %>
         </div>
         <div class="movie-castcrew">
@@ -46,23 +46,23 @@
         </div>
         <div class="row">
           <% @movie.actors.each do |actor| %>
-          <div class="profile-header-container col-sm-3">   
-            <div class="profile-header-img">
-              <%= image_tag user_avatar(actor, 50), class: "rounded-circle" %>
-              <div class="rank-label-container">
-                <span class="label label-default rank-label"> <%= actor.name %> </span>
-                <% if current_user.admin? %>
-                  <p> <%= link_to("Remove", movie_actor_detach_path(@movie, actor_id: actor.id), remote: true, :data => { :confirm => "Are you sure?" }) %>  </p>
-                <% end %>
+            <div class="profile-header-container col-sm-3">
+              <div class="profile-header-img">
+                <%= image_tag user_avatar(actor, 50), class: "rounded-circle" %>
+                <div class="rank-label-container">
+                  <span class="label label-default rank-label"> <%= actor.name %> </span>
+                  <% if current_user.admin? %>
+                    <p> <%= link_to("Remove", movie_actor_detach_path(@movie, actor_id: actor.id), remote: true, :data => {:confirm => "Are you sure?"}) %>  </p>
+                  <% end %>
+                </div>
               </div>
             </div>
-          </div>
           <% end %>
-          <div class="profile-header-container col-sm-3">   
+          <div class="profile-header-container col-sm-3">
             <% if current_user.admin? %>
               <a id="btnadd">
                 <div class="profile-header-img">
-                  <%= image_tag asset_path("plus.png"), size: "50x50" , class: "img-circle" %>
+                  <%= image_tag asset_path("plus.png"), size: "50x50", class: "img-circle" %>
                   <div class="rank-label-container">
                     <span class="label label-default rank-label"> Add Actor </span>
                   </div>
@@ -71,12 +71,12 @@
             <% end %>
           </div>
         </div>
-        <div class="movie-synopsis"> 
-          <%=raw @movie.description %> 
+        <div class="movie-synopsis">
+          <%= raw @movie.description %>
         </div>
         <button class="movie-trailer-btn play-trailer" type="button">play trailer</button>
         <div class="add_actor" style="display: none">
-          <%= collection_select(:actors, :actor_id, Actor.where.not(id: @movie.actors.ids), :id, :name ) %>
+          <%= collection_select(:actors, :actor_id, Actor.where.not(id: @movie.actors.ids), :id, :name) %>
           <button class="btn btn-primary btn-sm" type="button" id="actorsubmit" remote="True">Add</button>
         </div>
       </div>
@@ -91,47 +91,47 @@
         <div class="comment-wrapper">
           <div class="panel panel-info">
             <div class="panel-heading">
-             <h3 style="text-align: center;">Comments Panel</h3>
-           </div>
-           <div class="panel-body">
-            <%= form_with(scope: :review, url: add_review_movie_path, id: "myPost", remote: true) do |form| %>
-            <%= form.text_area :description, class: "form-control", placeholder: "write a comment..." %>
-            <section class='rating-widget'>
-              <!-- Rating Stars Box -->
-              <div class='rating-stars text-center'>
-                <h5>Please give rating before posting your review</h5>
-                <ul id='stars'>
-                  <li class='star' title='Poor' data-value='1'>
-                    <i class='fa fa-star fa-fw'></i>
-                  </li>
-                  <li class='star' title='Fair' data-value='2'>
-                    <i class='fa fa-star fa-fw'></i>
-                  </li>
-                  <li class='star' title='Good' data-value='3'>
-                    <i class='fa fa-star fa-fw'></i>
-                  </li>
-                  <li class='star' title='Excellent' data-value='4'>
-                    <i class='fa fa-star fa-fw'></i>
-                  </li>
-                  <li class='star' title='WOW!!!' data-value='5'>
-                    <i class='fa fa-star fa-fw'></i>
-                  </li>
-                </ul>
-                <%= form.text_field :rating, style: "display:none" %>
-                <img alt='tick image' id='tick_image' style="display: none" width='32' src='data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0MjYuNjY3IDQyNi42NjciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQyNi42NjcgNDI2LjY2NzsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxwYXRoIHN0eWxlPSJmaWxsOiM2QUMyNTk7IiBkPSJNMjEzLjMzMywwQzk1LjUxOCwwLDAsOTUuNTE0LDAsMjEzLjMzM3M5NS41MTgsMjEzLjMzMywyMTMuMzMzLDIxMy4zMzMgIGMxMTcuODI4LDAsMjEzLjMzMy05NS41MTQsMjEzLjMzMy0yMTMuMzMzUzMzMS4xNTcsMCwyMTMuMzMzLDB6IE0xNzQuMTk5LDMyMi45MThsLTkzLjkzNS05My45MzFsMzEuMzA5LTMxLjMwOWw2Mi42MjYsNjIuNjIyICBsMTQwLjg5NC0xNDAuODk4bDMxLjMwOSwzMS4zMDlMMTc0LjE5OSwzMjIuOTE4eiIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K'/>
-              </div>
-            </section>
-            <%= form.submit "Post", class: "btn btn-info pull-right", id: "comment_btn" %>            
-            <% end %>
-            <br>
-            <div class="clearfix"></div>
-            <hr>
-            <% @reviews.each do |review| %>
-              <%= render partial: 'review', locals: { review: review }%>
-            <% end %>
+              <h3 style="text-align: center;">Comments Panel</h3>
+            </div>
+            <div class="panel-body">
+              <%= form_with(scope: :review, url: add_review_movie_path, id: "myPost", remote: true) do |form| %>
+                <%= form.text_area :description, class: "form-control", placeholder: "write a comment..." %>
+                <section class='rating-widget'>
+                  <!-- Rating Stars Box -->
+                  <div class='rating-stars text-center'>
+                    <h5>Please give rating before posting your review</h5>
+                    <ul id='stars'>
+                      <li class='star' title='Poor' data-value='1'>
+                        <i class='fa fa-star fa-fw'></i>
+                      </li>
+                      <li class='star' title='Fair' data-value='2'>
+                        <i class='fa fa-star fa-fw'></i>
+                      </li>
+                      <li class='star' title='Good' data-value='3'>
+                        <i class='fa fa-star fa-fw'></i>
+                      </li>
+                      <li class='star' title='Excellent' data-value='4'>
+                        <i class='fa fa-star fa-fw'></i>
+                      </li>
+                      <li class='star' title='WOW!!!' data-value='5'>
+                        <i class='fa fa-star fa-fw'></i>
+                      </li>
+                    </ul>
+                    <%= form.text_field :rating, style: "display:none" %>
+                    <img alt='tick image' id='tick_image' style="display: none" width='32' src='data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0MjYuNjY3IDQyNi42NjciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQyNi42NjcgNDI2LjY2NzsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxwYXRoIHN0eWxlPSJmaWxsOiM2QUMyNTk7IiBkPSJNMjEzLjMzMywwQzk1LjUxOCwwLDAsOTUuNTE0LDAsMjEzLjMzM3M5NS41MTgsMjEzLjMzMywyMTMuMzMzLDIxMy4zMzMgIGMxMTcuODI4LDAsMjEzLjMzMy05NS41MTQsMjEzLjMzMy0yMTMuMzMzUzMzMS4xNTcsMCwyMTMuMzMzLDB6IE0xNzQuMTk5LDMyMi45MThsLTkzLjkzNS05My45MzFsMzEuMzA5LTMxLjMwOWw2Mi42MjYsNjIuNjIyICBsMTQwLjg5NC0xNDAuODk4bDMxLjMwOSwzMS4zMDlMMTc0LjE5OSwzMjIuOTE4eiIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K'/>
+                  </div>
+                </section>
+                <%= form.submit "Post", class: "btn btn-info pull-right", id: "comment_btn" %>
+              <% end %>
+              <br>
+              <div class="clearfix"></div>
+              <hr>
+              <% @reviews.each do |review| %>
+                <%= render partial: 'review', locals: {review: review} %>
+              <% end %>
             </div>
             <div class="container pagination justify-content-center">
-             <%= paginate @reviews,  pagination_class: "pagination-sm" %>
+              <%= paginate @reviews, pagination_class: "pagination-sm" %>
             </div>
           </div>
         </div>

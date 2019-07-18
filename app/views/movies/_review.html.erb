@@ -8,27 +8,28 @@
         <small class="text-muted"><%= time_ago_in_words(review.updated_at).humanize %></small>
       </span>
       <strong class="text-success">@ <a href="/users/<%= review.user.id %>">  <%= review.user.name %> </a> </strong>
-      <p id="description"><%= review.description %><p>
-      <% $i = review.rating.round %>
-      <% $i.times do %>
-        <span style="color:#FF8F42;">&starf;</span>
-      <% end %>
+      <p id="description"><%= review.description %>
+        <p>
+          <% $i = review.rating.round %>
+          <% $i.times do %>
+            <span style="color:#FF8F42;">&starf;</span>
+          <% end %>
         </p>
       </p>
       <% if current_user == review.user %>
         <div id="div-edit">
-        <a href="#panel-body-id" data-id="<%= review.id %>">Edit</a>
+          <a href="#panel-body-id" data-id="<%= review.id %>">Edit</a>
         </div>
-        <%= link_to 'Destroy', review_path(review), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Destroy', review_path(review), method: :delete, data: {confirm: 'Are you sure?'} %>
       <% else %>
         <% unless @reported_reviews.include?(review.id) %>
-          <%= link_to '', reported_reviews_path(reported_review: {user_id: current_user.id, movie_id: @movie.id, review_id: review.id, description: review.description } ), id: review.id , method: :post, remote: true, class: "fa fa-flag-o" %>
+          <%= link_to '', reported_reviews_path(reported_review: {user_id: current_user.id, movie_id: @movie.id, review_id: review.id, description: review.description}), id: review.id, method: :post, remote: true, class: "fa fa-flag-o" %>
         <% else %>
           <p class="fa fa-flag"></p>
-         <% end %>
+        <% end %>
       <% end %>
-      <% if current_user.admin? && review.user!=current_user %>
-        <%= link_to 'Destroy', review_path(review), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% if current_user.admin? && review.user != current_user %>
+        <%= link_to 'Destroy', review_path(review), method: :delete, data: {confirm: 'Are you sure?'} %>
       <% end %>
     </div>
   </li>

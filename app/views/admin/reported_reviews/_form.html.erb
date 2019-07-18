@@ -2,7 +2,6 @@
   <% if reported_review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(reported_review.errors.count, "error") %> prohibited this reported_review from being saved:</h2>
-
       <ul>
         <% reported_review.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -10,27 +9,22 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= form.label :user_id %>
     <%= form.text_field :user_id %>
   </div>
-
   <div class="field">
     <%= form.label :movie_id %>
     <%= form.text_field :movie_id %>
   </div>
-
   <div class="field">
     <%= form.label :review_id %>
     <%= form.text_field :review_id %>
   </div>
-
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>

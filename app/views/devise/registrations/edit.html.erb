@@ -1,59 +1,60 @@
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put} ) do |f| %>
-<section class="form-dark">
-  <%= devise_error_messages! %>
-  <div class="card card-image" >
-    <!--Header-->
-    <div class="text-center">
-      <h3 class="white-text mb-3 mt-2 font-weight-bold"><strong>Edit</strong> <a class="green-text font-weight-bold"><strong> USER</strong></a></h3>
-    </div>
-    <!--Body-->
-    <div class="form-group"> 
-      <% if resource.avatar.attached? %>
-      <%= image_tag user_avatar(resource, 100), class: "rounded-circle" %>
-      <% end %>
-    </div>
-    <div class="form-group">
-      <label for="Form-file" class="text-body mb-3 mt-2 font-weight-bold">Add/Update Avatar</label>
-      <%= f.file_field :avatar, id: "Form-file" %>
-    </div>
-    <div class="md-form">
-      <label for="Form-email5" class="text-body mb-3 mt-2 font-weight-bold">Your Name</label>
-      <%= f.text_field :name, class: 'form-control white-text' %>
-    </div>
-    <div class="md-form">
-      <label for="Form-email5" class="text-body mb-3 mt-2 font-weight-bold">Your Email</label>
-      <%= f.email_field :email, autofocus: true, class: "form-control white-text", id: "Form-email15"%>
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <span class="label label-info">Currently waiting confirmation for: <%= resource.unconfirmed_email %></span>
-      <% end %>
-    </div>
-    <div class="md-form pb-3">
-      <label for="Form-pass5" class="text-body mb-3 mt-2 font-weight-bold">Your Password</label>
-      <%= f.password_field :password, class: "form-control white-text", id: "Form-pass5", placeholder: "leave blank if you don't want to change it" %>
-      <label for="Form-pass5c" class="text-body mb-3 mt-2 font-weight-bold">Confirm Password</label>
-      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control white-text', id: "Form-pass5c" %>
-      <label for="Form-pass5current" class="text-body mb-3 mt-2 font-weight-bold">Current Password</label>
-      <%= f.password_field :current_password, autocomplete: "off", class: 'form-control white-text', id: "Form-pass5current", placeholder: "we need your current password to confirm your changes" %>
-    </div>
-    <div class="row d-flex align-items-center mb-4">
-      <div class="text-center mb-3 col-md-12">
-        <%= f.submit "Update", class: "btn btn-success btn-block btn-rounded z-depth-1" %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
+  <section class="form-dark">
+    <%= devise_error_messages! %>
+    <div class="card card-image">
+      <!--Header-->
+      <div class="text-center">
+        <h3 class="white-text mb-3 mt-2 font-weight-bold"><strong>Edit</strong>
+          <a class="green-text font-weight-bold"><strong> USER</strong></a></h3>
+      </div>
+      <!--Body-->
+      <div class="form-group">
+        <% if resource.avatar.attached? %>
+          <%= image_tag user_avatar(resource, 100), class: "rounded-circle" %>
+        <% end %>
+      </div>
+      <div class="form-group">
+        <label for="Form-file" class="text-body mb-3 mt-2 font-weight-bold">Add/Update Avatar</label>
+        <%= f.file_field :avatar, id: "Form-file" %>
+      </div>
+      <div class="md-form">
+        <label for="Form-email5" class="text-body mb-3 mt-2 font-weight-bold">Your Name</label>
+        <%= f.text_field :name, class: 'form-control white-text' %>
+      </div>
+      <div class="md-form">
+        <label for="Form-email5" class="text-body mb-3 mt-2 font-weight-bold">Your Email</label>
+        <%= f.email_field :email, autofocus: true, class: "form-control white-text", id: "Form-email15" %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <span class="label label-info">Currently waiting confirmation for: <%= resource.unconfirmed_email %></span>
+        <% end %>
+      </div>
+      <div class="md-form pb-3">
+        <label for="Form-pass5" class="text-body mb-3 mt-2 font-weight-bold">Your Password</label>
+        <%= f.password_field :password, class: "form-control white-text", id: "Form-pass5", placeholder: "leave blank if you don't want to change it" %>
+        <label for="Form-pass5c" class="text-body mb-3 mt-2 font-weight-bold">Confirm Password</label>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control white-text', id: "Form-pass5c" %>
+        <label for="Form-pass5current" class="text-body mb-3 mt-2 font-weight-bold">Current Password</label>
+        <%= f.password_field :current_password, autocomplete: "off", class: 'form-control white-text', id: "Form-pass5current", placeholder: "we need your current password to confirm your changes" %>
+      </div>
+      <div class="row d-flex align-items-center mb-4">
+        <div class="text-center mb-3 col-md-12">
+          <%= f.submit "Update", class: "btn btn-success btn-block btn-rounded z-depth-1" %>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 <% end %>
 
 
 <section class="form-dark">
   <%= devise_error_messages! %>
-  <div class="card card-image" >
+  <div class="card card-image">
     <div class="text-center">
-  <h3>Cancel my account</h3>
-  <p>Unhappy?
-    <%= button_to "Cancel my account", registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Are you sure?" }, method: :delete %>
-  </p>
-</div>
+      <h3>Cancel my account</h3>
+      <p>Unhappy?
+        <%= button_to "Cancel my account", registration_path(resource_name), class: 'btn btn-danger', data: {confirm: "Are you sure?"}, method: :delete %>
+      </p>
+    </div>
 
   </div>
 </section>

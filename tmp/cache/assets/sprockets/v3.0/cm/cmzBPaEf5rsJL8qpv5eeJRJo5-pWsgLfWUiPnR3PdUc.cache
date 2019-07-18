@@ -1,0 +1,84 @@
+I"²	(function() {
+  var toggleVideo;
+
+  toggleVideo = function(state) {
+    var div, iframe;
+    div = document.getElementById('youvideo');
+    iframe = div.getElementsByTagName('iframe')[0].contentWindow;
+    div.style.display = state === 'hide' ? 'none' : '';
+    if (state === 'hide') {
+      return jQuery('.youvideo').get(0).stopVideo();
+    }
+  };
+
+  $(document).ready(function() {
+    var id, token, url;
+    $('.play-trailer').on('click', function() {
+      toggleVideo('show');
+      return $('.moviecard').addClass('movie-view-trailer');
+    });
+    $('.back-btn').click(function() {
+      $('.moviecard').removeClass('movie-view-trailer');
+      return toggleVideo('hide');
+    });
+    jQuery('#myCarousel').carousel({
+      interval: 3000
+    });
+    $('#btnadd').click(function() {
+      return $('.add_actor').toggle('slide');
+    });
+    url = window.location.href;
+    if (~url.indexOf("?")) {
+      url = url.substring(0, url.indexOf('?'));
+    }
+    id = url.substring(url.lastIndexOf('/') + 1);
+    token = $('meta[name="csrf-token"]').attr('content');
+    $('#actorsubmit').click(function() {
+      return $.ajax({
+        type: 'POST',
+        url: id + '/' + $('#actors_actor_id').val() + '/addActor',
+        headers: {
+          'X-CSRF-Token': document.querySelector('meta[name=csrf-token]').content
+        },
+        success: function(result) {
+          window.location.reload();
+        }
+      });
+    });
+    $('#div-edit > a ').click(function() {
+      var a;
+      $('#myPost').attr('method', 'post');
+      $('#myPost').attr('action', '/reviews/' + $(this).data('id'));
+      $('<input>').attr({
+        type: 'hidden',
+        value: 'patch',
+        name: '_method'
+      }).appendTo('#myPost');
+      a = $(this).parent().siblings('#description').text();
+      return $('#review_description').val(a);
+    });
+    $('#comment_btn').on('click', function() {
+      e.preventDefault();
+      if ($('#review_rating').val() === '') {
+        return alert('cannot submit without rating');
+      } else {
+        return $('#myPost').submit();
+      }
+    });
+    $('#search_textbox').keydown(function() {
+      return $('#search_submit').click();
+    });
+    $('#btn_search_show').on('click', function() {
+      if ($('#search_div').css('display') === 'none') {
+        return $('#search_div').show();
+      } else {
+        return $('#search_div').hide();
+      }
+    });
+    return $('[data-toggle="popover"]').popover();
+  });
+
+  return;
+
+}).call(this);
+:ET

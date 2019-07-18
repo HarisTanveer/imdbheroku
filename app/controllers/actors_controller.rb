@@ -1,7 +1,7 @@
 class ActorsController < ApplicationController
   before_action :set_actor, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :authenticate_admin!, only: [:create, :edit, :update, :destroy, :new, :detach] 
+  before_action :authenticate_admin!, only: [:create, :edit, :update, :destroy, :new, :detach]
 
   # GET /actors
   # GET /actors.json
@@ -30,11 +30,11 @@ class ActorsController < ApplicationController
 
     respond_to do |format|
       if @actor.save
-        format.html { redirect_to @actor, notice: 'Actor was successfully created.' }
-        format.json { render :show, status: :created, location: @actor }
+        format.html {redirect_to @actor, notice: 'Actor was successfully created.'}
+        format.json {render :show, status: :created, location: @actor}
       else
-        format.html { render :new }
-        format.json { render json: @actor.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @actor.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -44,11 +44,11 @@ class ActorsController < ApplicationController
   def update
     respond_to do |format|
       if @actor.update(actor_params)
-        format.html { redirect_to @actor, notice: 'Actor was successfully updated.' }
-        format.json { render :show, status: :ok, location: @actor }
+        format.html {redirect_to @actor, notice: 'Actor was successfully updated.'}
+        format.json {render :show, status: :ok, location: @actor}
       else
-        format.html { render :edit }
-        format.json { render json: @actor.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @actor.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -58,8 +58,8 @@ class ActorsController < ApplicationController
   def destroy
     @actor.destroy
     respond_to do |format|
-      format.html { redirect_to actors_url, notice: 'Actor was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to actors_url, notice: 'Actor was successfully destroyed.'}
+      format.json {head :no_content}
     end
   end
 
@@ -70,24 +70,24 @@ class ActorsController < ApplicationController
       redirect_to movie_path(@movie)
     else
       respond_to do |format|
-        format.html { redirect_to actors_url, notice: 'Cannot remove actor from movie' }
-        format.json { head :no_content }
+        format.html {redirect_to actors_url, notice: 'Cannot remove actor from movie'}
+        format.json {head :no_content}
       end
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_actor
-      @actor = Actor.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_actor
+    @actor = Actor.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def actor_params
-      params.require(:actor).permit(:name, :date_of_birth, :avatar)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def actor_params
+    params.require(:actor).permit(:name, :date_of_birth, :avatar)
+  end
 
-    def authenticate_admin!
-      redirect_to root_path unless current_user.admin?
-    end
+  def authenticate_admin!
+    redirect_to root_path unless current_user.admin?
+  end
 end

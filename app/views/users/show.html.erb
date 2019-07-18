@@ -1,14 +1,14 @@
 <div class="row py-5 px-4">
   <div class="col-xl-12 col-md-12 col-sm-12 mx-auto">
-
     <!-- Profile widget -->
     <div class="bg-white shadow rounded overflow-hidden">
       <div class="px-4 pt-0 pb-4 bg-dark">
         <div class="media align-items-end profile-header">
-          <div class="profile mr-3"><img src="<%= url_for @user.avatar %>" alt="..." width="130" class="rounded mb-2 img-thumbnail">
-            <%if @user == current_user %>
-              <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: "btn btn-dark btn-sm btn-block"  %>
-             <% end %>
+          <div class="profile mr-3">
+            <img src="<%= url_for @user.avatar %>" alt="..." width="130" class="rounded mb-2 img-thumbnail">
+            <% if @user == current_user %>
+              <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: "btn btn-dark btn-sm btn-block" %>
+            <% end %>
           </div>
           <div class="media-body mb-5 text-white">
             <h4 class="mt-0 mb-0"> <%= @user.name %> </h4>
@@ -16,19 +16,17 @@
           </div>
         </div>
       </div>
-
       <div class="py-4 px-4">
         <h3 class="text-center ">Favourite Movies and TV Shows</h3>
-          <div id="homepage">
-            <div class="row flex-row flex-nowrap">
-              <% @user.favourite_movies.each do |movie| %>
-                <div class="col-12 csol-sm-6 col-md-4 col-lg-4">
-                  <%= render partial: 'pages/index', locals: { movie: movie } %>
-                </div>
-              <% end %>
-            </div>
+        <div id="homepage">
+          <div class="row flex-row flex-nowrap">
+            <% @user.favourite_movies.each do |movie| %>
+              <div class="col-12 csol-sm-6 col-md-4 col-lg-4">
+                <%= render partial: 'pages/index', locals: {movie: movie} %>
+              </div>
+            <% end %>
           </div>
-
+        </div>
         <div class="py-4">
           <h3 class="text-center ">Recent Comments</h3>
           <% @user.reviews.each do |review| %>
@@ -43,6 +41,5 @@
         </div>
       </div>
     </div><!-- End profile widget -->
-
   </div>
 </div>

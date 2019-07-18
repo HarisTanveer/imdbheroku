@@ -1,0 +1,110 @@
+{
+  "files": {
+    "ckeditor/config-9e1a5ff3802c50f0ca1045c7f5e5ba7ff0b89fe3c89f5738d0ee70f91b02c058.js": {
+      "logical_path": "ckeditor/config.js",
+      "mtime": "2019-07-12T12:41:08+05:00",
+      "size": 272,
+      "digest": "9e1a5ff3802c50f0ca1045c7f5e5ba7ff0b89fe3c89f5738d0ee70f91b02c058",
+      "integrity": "sha256-nhpf84AsUPDKEEXH9eW6f/C4n+PIn1c40O5w+RsCwFg="
+    },
+    "logo-dadff5e0c5f3bc0e1c1552dbf5c6698c5409a037cd0577635712467a06b7dd96.png": {
+      "logical_path": "logo.png",
+      "mtime": "2019-07-12T12:41:42+05:00",
+      "size": 194248,
+      "digest": "dadff5e0c5f3bc0e1c1552dbf5c6698c5409a037cd0577635712467a06b7dd96",
+      "integrity": "sha256-2t/14MXzvA4cFVLb9cZpjFQJoDfNBXdjVxJGega33ZY="
+    },
+    "nouser-bfa6318418829641d9901eca6fa5d3d38405476a80af98e24170b41cbf06a62e.png": {
+      "logical_path": "nouser.png",
+      "mtime": "2019-07-18T11:56:49+05:00",
+      "size": 204471,
+      "digest": "bfa6318418829641d9901eca6fa5d3d38405476a80af98e24170b41cbf06a62e",
+      "integrity": "sha256-v6YxhBiClkHZkB7Kb6XT04QFR2qAr5jiQXC0HL8Gpi4="
+    },
+    "plus-553d7d037815c28d0d4ddfeeb5335cdaa89a153c56d922ef95d21036e2016368.png": {
+      "logical_path": "plus.png",
+      "mtime": "2019-07-18T11:56:49+05:00",
+      "size": 4459,
+      "digest": "553d7d037815c28d0d4ddfeeb5335cdaa89a153c56d922ef95d21036e2016368",
+      "integrity": "sha256-VT19A3gVwo0NTd/utTNc2qiaFTxW2SLvldIQNuIBY2g="
+    },
+    "application-e2de77801e933815360dba2f6fe46831dd76342b107924619ce6dab8dfd88671.js": {
+      "logical_path": "application.js",
+      "mtime": "2019-07-18T11:56:49+05:00",
+      "size": 312948,
+      "digest": "e2de77801e933815360dba2f6fe46831dd76342b107924619ce6dab8dfd88671",
+      "integrity": "sha256-4t53gB6TOBU2Dbovb+RoMd12NCsQeSRhnObauN/YhnE="
+    },
+    "application-22a89514b4eddec59ffdd7da90c2a0c57c03a250adc4cd1bd6895aae7dff5c84.css": {
+      "logical_path": "application.css",
+      "mtime": "2019-07-18T11:56:49+05:00",
+      "size": 26696,
+      "digest": "22a89514b4eddec59ffdd7da90c2a0c57c03a250adc4cd1bd6895aae7dff5c84",
+      "integrity": "sha256-IqiVFLTt3sWf/dfakMKgxXwDolCtxM0b1olarn3/XIQ="
+    },
+    "ckeditor/application-56a1c7231485c7ea14ed14a767c7fc8d7cfc133308e31300f9751430a78dec38.js": {
+      "logical_path": "ckeditor/application.js",
+      "mtime": "2019-07-12T12:33:00+05:00",
+      "size": 78411,
+      "digest": "56a1c7231485c7ea14ed14a767c7fc8d7cfc133308e31300f9751430a78dec38",
+      "integrity": "sha256-VqHHIxSFx+oU7RSnZ8f8jXz8EzMI4xMA+XUUMKeN7Dg="
+    },
+    "ckeditor/filebrowser/javascripts/application-6eb1266221a129c66ba8976527279e7539746e3c5f6b1af3faf7b5a9d013d4e4.js": {
+      "logical_path": "ckeditor/filebrowser/javascripts/application.js",
+      "mtime": "2019-07-12T12:33:00+05:00",
+      "size": 7199,
+      "digest": "6eb1266221a129c66ba8976527279e7539746e3c5f6b1af3faf7b5a9d013d4e4",
+      "integrity": "sha256-brEmYiGhKcZrqJdlJyeedTl0bjxfaxrz+ve1qdAT1OQ="
+    },
+    "ckeditor/application-65c46a7d3d839022069e2d2aec55a059037403c47a1d3bcb5221e04078ca16f7.css": {
+      "logical_path": "ckeditor/application.css",
+      "mtime": "2019-07-12T12:33:00+05:00",
+      "size": 7588,
+      "digest": "65c46a7d3d839022069e2d2aec55a059037403c47a1d3bcb5221e04078ca16f7",
+      "integrity": "sha256-ZcRqfT2DkCIGni0q7FWgWQN0A8R6HTvLUiHgQHjKFvc="
+    },
+    "ckeditor/filebrowser/gal_del-5103ec7de60473f8c5bafa0208257dca3a993edb783a766666edbc606fd6c531.png": {
+      "logical_path": "ckeditor/filebrowser/gal_del.png",
+      "mtime": "2019-07-12T12:33:00+05:00",
+      "size": 1331,
+      "digest": "5103ec7de60473f8c5bafa0208257dca3a993edb783a766666edbc606fd6c531",
+      "integrity": "sha256-UQPsfeYEc/jFuvoCCCV9yjqZPtt4OnZmZu28YG/WxTE="
+    },
+    "ckeditor/filebrowser/preloader-3799a3e41d7787a31dac5796ebccc242951da2f2b57eb088326ab3bffe15056a.gif": {
+      "logical_path": "ckeditor/filebrowser/preloader.gif",
+      "mtime": "2019-07-12T12:33:00+05:00",
+      "size": 6131,
+      "digest": "3799a3e41d7787a31dac5796ebccc242951da2f2b57eb088326ab3bffe15056a",
+      "integrity": "sha256-N5mj5B13h6MdrFeW68zCQpUdovK1frCIMmqzv/4VBWo="
+    },
+    "ckeditor/filebrowser/gal_add-e97dc0969bf9a7b88d048bcc2e4eb28a2f9ae75763e7076b4c68ee2e7de3ea05.png": {
+      "logical_path": "ckeditor/filebrowser/gal_add.png",
+      "mtime": "2019-07-12T12:33:00+05:00",
+      "size": 1446,
+      "digest": "e97dc0969bf9a7b88d048bcc2e4eb28a2f9ae75763e7076b4c68ee2e7de3ea05",
+      "integrity": "sha256-6X3Alpv5p7iNBIvMLk6yii+a51dj5wdrTGjuLn3j6gU="
+    },
+    "ckeditor/filebrowser/gal_more-93d8887361f4dd7f757c20a186a2dae6e5cc6698da238814eacbff7b19a43f51.gif": {
+      "logical_path": "ckeditor/filebrowser/gal_more.gif",
+      "mtime": "2019-07-12T12:33:00+05:00",
+      "size": 1101,
+      "digest": "93d8887361f4dd7f757c20a186a2dae6e5cc6698da238814eacbff7b19a43f51",
+      "integrity": "sha256-k9iIc2H03X91fCChhqLa5uXMZpjaI4gU6sv/exmkP1E="
+    }
+  },
+  "assets": {
+    "ckeditor/config.js": "ckeditor/config-9e1a5ff3802c50f0ca1045c7f5e5ba7ff0b89fe3c89f5738d0ee70f91b02c058.js",
+    "logo.png": "logo-dadff5e0c5f3bc0e1c1552dbf5c6698c5409a037cd0577635712467a06b7dd96.png",
+    "nouser.png": "nouser-bfa6318418829641d9901eca6fa5d3d38405476a80af98e24170b41cbf06a62e.png",
+    "plus.png": "plus-553d7d037815c28d0d4ddfeeb5335cdaa89a153c56d922ef95d21036e2016368.png",
+    "application.js": "application-e2de77801e933815360dba2f6fe46831dd76342b107924619ce6dab8dfd88671.js",
+    "application.css": "application-22a89514b4eddec59ffdd7da90c2a0c57c03a250adc4cd1bd6895aae7dff5c84.css",
+    "ckeditor/application.js": "ckeditor/application-56a1c7231485c7ea14ed14a767c7fc8d7cfc133308e31300f9751430a78dec38.js",
+    "ckeditor/filebrowser/javascripts/application.js": "ckeditor/filebrowser/javascripts/application-6eb1266221a129c66ba8976527279e7539746e3c5f6b1af3faf7b5a9d013d4e4.js",
+    "ckeditor/application.css": "ckeditor/application-65c46a7d3d839022069e2d2aec55a059037403c47a1d3bcb5221e04078ca16f7.css",
+    "ckeditor/filebrowser/gal_del.png": "ckeditor/filebrowser/gal_del-5103ec7de60473f8c5bafa0208257dca3a993edb783a766666edbc606fd6c531.png",
+    "ckeditor/filebrowser/preloader.gif": "ckeditor/filebrowser/preloader-3799a3e41d7787a31dac5796ebccc242951da2f2b57eb088326ab3bffe15056a.gif",
+    "ckeditor/filebrowser/gal_add.png": "ckeditor/filebrowser/gal_add-e97dc0969bf9a7b88d048bcc2e4eb28a2f9ae75763e7076b4c68ee2e7de3ea05.png",
+    "ckeditor/filebrowser/gal_more.gif": "ckeditor/filebrowser/gal_more-93d8887361f4dd7f757c20a186a2dae6e5cc6698da238814eacbff7b19a43f51.gif"
+  }
+}

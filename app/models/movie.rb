@@ -5,5 +5,4 @@ class Movie < ApplicationRecord
   paginates_per 2
   has_many :reviews
   has_and_belongs_to_many :users
-
 end

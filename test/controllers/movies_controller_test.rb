@@ -17,7 +17,7 @@ class MoviesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create movie" do
     assert_difference('Movie.count') do
-      post movies_url, params: { movie: { description: @movie.description, genre: @movie.genre, rating: @movie.rating, release_date: @movie.release_date, title: @movie.title } }
+      post movies_url, params: {movie: {description: @movie.description, genre: @movie.genre, rating: @movie.rating, release_date: @movie.release_date, title: @movie.title}}
     end
 
     assert_redirected_to movie_url(Movie.last)
@@ -34,7 +34,7 @@ class MoviesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update movie" do
-    patch movie_url(@movie), params: { movie: { description: @movie.description, genre: @movie.genre, rating: @movie.rating, release_date: @movie.release_date, title: @movie.title } }
+    patch movie_url(@movie), params: {movie: {description: @movie.description, genre: @movie.genre, rating: @movie.rating, release_date: @movie.release_date, title: @movie.title}}
     assert_redirected_to movie_url(@movie)
   end
 

@@ -19,6 +19,7 @@
   box-shadow: -5px 5px 15px;
   border-radius: 5px;
 }
+
 #showpages .moviecard #movie-content {
   opacity: 1;
   width: 100%;
@@ -26,35 +27,43 @@
   transition: all 500ms ease-out;
   position: relative;
 }
+
 #showpages .moviecard .movie-title {
   font-size: 36px;
   padding-bottom: 6px;
   color: #333333;
 }
+
 #showpages .moviecard .movie-title .movie-year {
   margin-left: 12px;
   font-size: 16px;
 }
+
 #showpages .moviecard .movie-title a {
   color: #333333;
   text-decoration: none;
 }
+
 #showpages .moviecard .movie-title a:hover {
   color: #858585;
 }
+
 #showpages .moviecard .movie-details {
   font-size: 12px;
   padding-bottom: 24px;
   margin-bottom: 12px;
   border-bottom: 1px solid #dbdbdb;
 }
+
 #showpages .moviecard .movie-details span {
   padding: 0px 6px;
   border-right: 1px solid #dbdbdb;
 }
+
 #showpages .moviecard .movie-details span:last-child {
   border: none;
 }
+
 #showpages .moviecard .movie-castcrew {
   padding-top: 12px;
   width: 100%;
@@ -62,12 +71,14 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
 #showpages .moviecard .movie-castcrew span.title {
   color: #333333;
   display: inline-block;
   width: 80px;
   font-weight: 600;
 }
+
 #showpages .moviecard .movie-synopsis {
   margin: 24px 0px;
   padding-top: 24px;
@@ -77,20 +88,24 @@
   overflow-y: hidden;
   width: 100%;
 }
+
 #showpages .moviecard .movie-ratings {
   position: absolute;
   right: 0px;
 }
+
 #showpages .moviecard .movie-ratings span.star {
   display: inline-block;
   margin-right: 12px;
   color: #F0DE00;
   font-size: 36px;
 }
+
 #showpages .moviecard .movie-ratings span.score {
   font-size: 30px;
   color: #333333;
 }
+
 #showpages .moviecard .movie-trailer-btn {
   text-transform: uppercase;
   outline: none;
@@ -102,15 +117,19 @@
   font-size: 16px;
   font-weight: 600;
 }
+
 #showpages .moviecard .movie-trailer-btn:hover {
   text-decoration: underline;
 }
+
 #showpages .moviecard .movie-trailer-btn:hover:before {
   color: #333333;
 }
+
 #showpages .moviecard .movie-trailer-btn:hover:after {
   border-color: #333333;
 }
+
 #showpages .moviecard .movie-trailer-btn:before {
   content: '▸';
   font-size: 30px;
@@ -119,6 +138,7 @@
   top: 2px;
   left: 20px;
 }
+
 #showpages .moviecard .movie-trailer-btn:after {
   content: "";
   width: 20px;
@@ -129,6 +149,7 @@
   left: 18px;
   top: 12px;
 }
+
 #showpages .moviecard .movie-trailer {
   width: 0px;
   opacity: 0;
@@ -143,6 +164,7 @@
   padding: 60px 40px 60px 60px;
   border-radius: 5px;
 }
+
 #showpages .moviecard .movie-trailer a.back-btn {
   color: #333333;
   text-decoration: none;
@@ -155,6 +177,7 @@
   font-size: 12px;
   cursor: pointer;
 }
+
 #showpages .moviecard .movie-trailer a.back-btn:before {
   content: '⌜';
   position: absolute;
@@ -163,13 +186,16 @@
   transform: rotate(-45deg);
   font-size: 20px;
 }
+
 #showpages .moviecard .movie-trailer a.back-btn:hover {
   color: #333;
 }
+
 #showpages .moviecard .movie-trailer iframe {
   width: 100%;
   height: 100%;
 }
+
 #showpages .moviecard .movie-poster {
   position: absolute;
   background-size: contain;
@@ -181,6 +207,7 @@
   transition: all 500ms ease-out;
   z-index: 10;
 }
+
 #showpages .moviecard .movie-poster:before {
   content: '▸';
   position: absolute;
@@ -190,21 +217,26 @@
   font-size: 200px;
   color: rgba(255, 255, 255, 0.4);
 }
+
 #showpages .moviecard .movie-poster:hover:before {
   color: rgba(255, 255, 255, 0.8);
 }
+
 #showpages .moviecard.movie-view-trailer .movie-poster {
   right: 600px;
 }
+
 #showpages .moviecard.movie-view-trailer #movie-content {
   opacity: 0;
   width: 0px;
 }
+
 #showpages .moviecard.movie-view-trailer .movie-trailer {
   width: 100%;
   opacity: 1;
   padding-left: 300px;
 }
+
 #showpages .moviecard.movie-view-trailer .movie-trailer #youvideo {
   height: 100%;
 }

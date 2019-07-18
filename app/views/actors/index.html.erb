@@ -4,13 +4,13 @@
 <div class="row">
   <% @actors.each do |actor| %>
     <div class="col-sm-4">
-      <%= render partial: 'index', locals: { actor: actor } %>
-     </div>
+      <%= render partial: 'index', locals: {actor: actor} %>
+    </div>
   <% end %>
- </div>
- <div class="row">
-   <div class="container pagination justify-content-center mt-5">
-    <%= paginate @actors,  pagination_class: "pagination-sm" %>
+</div>
+<div class="row">
+  <div class="container pagination justify-content-center mt-5">
+    <%= paginate @actors, pagination_class: "pagination-sm" %>
   </div>
 </div>
 <br>
